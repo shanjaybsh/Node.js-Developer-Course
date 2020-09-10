@@ -2,66 +2,66 @@ const yargs = require('yargs')
 const chalk = require('chalk')
 const notesFun = require('./notes.js')
 
-// Add Command
+//Create Add Command
 yargs.command({
-    command: 'add',
-    describe: 'Adds a Note',
-    builder: {
-                title: {
+    command: 'add', // Yargs add command
+    describe: 'Adds a Note', // Command Description
+    builder: {    // It used to Add data to the note
+                title: {          // Notes Title
                             describe: 'Contains title of the Note',
-                            type: "string",
+                            type: "string", //Title type
                             demandOption: true
                         },
-                body:  {
+                body:  {          // Notes body
                             describe: 'Contains body of the Note',
                             type: "string",
                             demandOption: true
                         },        
              },
     handler: function(argv){
-       notesFun.add(argv.title,argv.body)
+       notesFun.add(argv.title,argv.body) // To add --title ="Some Title" --body="Some Content" 
     }  
 })
 
-// Remove Command
+//Create Remove Command
 yargs.command({
-    command: 'remove',
-    describe: 'Removes a Note',
-    builder: {
-                title: {
+    command: 'remove', //Yargs Remove Command
+    describe: 'Removes a Note', // Command Description
+    builder: {    // It used to Remove data in the Note
+                title: {           //Notes title
                             describe: 'Contains title of the Note',
                             type: "string",
                             demandOption: true
                         }   
              },
     handler: function(argv){
-        notesFun.remove(argv.title)
+        notesFun.remove(argv.title)   // remove --title="Existing title "
     }  
 })
 
-// Read Command
+//Create Read Command
 yargs.command({
-    command: 'read',
-    describe: 'Reads a Note',
-    builder: {
-                title: {
+    command: 'read', // Yargs Read command
+    describe: 'Reads a Note', // Command Description
+    builder: {  // It used to read data in the Note
+                title: {       // Notes Title
                             describe: 'Contains title of the Note',
-                            type: "string",
+                            type: "string", 
                             demandOption: true
                         }
              },
     handler: function(argv){
-       notesFun.read(argv.title)
+       notesFun.read(argv.title)    // read --title="Existing Title"
     }  
 })
 
-// List Command
+//Create List Command
 yargs.command({
-    command: 'list',
-    describe: 'List all Notes',
+    command: 'list', //Yargs List command
+    describe: 'List all Notes', // Command Description
     handler: function(argv){
-        notesFun.list()
+        notesFun.list()       // List --title="Existing Title"
     }  
 })
 
-yargs.parse()
+yargs.parse() // Display a data
