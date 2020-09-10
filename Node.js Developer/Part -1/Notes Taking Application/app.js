@@ -1,6 +1,6 @@
-const yargs = require('yargs')
-const chalk = require('chalk')
-const notesFun = require('./notes.js')
+const yargs = require('yargs')  // To build intractive command Line Tool
+const chalk = require('chalk')  // Printing in color
+const notesFun = require('./notes.js') 
 
 //Create Add Command
 yargs.command({
